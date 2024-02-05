@@ -26,7 +26,7 @@ describe('TaxService', () => {
     httpTestingController.verify();
   });
 
-  describe('business', () => {
+  describe('boundary', () => {
     it('should be created', () => {
       expect(service).toBeTruthy();
     });
