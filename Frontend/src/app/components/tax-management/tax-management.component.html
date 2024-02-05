@@ -1,0 +1,35 @@
+<div>
+    <h2>Tax Management</h2>
+    <button (click)="loadTaxes()">Refresh Taxes</button>
+
+    <ul>
+        <li *ngFor="let tax of taxes">
+            {{ tax.formType }} - {{ tax.filingDate | date }} - {{ tax.totalTaxAmount }}
+            <button (click)="selectTax(tax)">Select</button>
+            <button (click)="showUpdateForm(tax.taxFormId)">Update</button>
+            <button (click)="deleteTax(tax.taxFormId)">Delete</button>
+        </li>
+    </ul>
+
+    <div>
+        <h3>{{ selectedTax.taxFormId ? 'Update' : 'Add' }} Tax</h3>
+        <form>
+            <label for="formType">Form Type:</label>
+            <input type="text" id="formType" [(ngModel)]="selectedTax.formType" name="formType" required>
+
+            <label for="filingDate">Filing Date:</label>
+            <input type="date" id="filingDate" [(ngModel)]="selectedTax.filingDate" name="filingDate" required>
+
+            <label for="totalTaxAmount">Total Tax Amount:</label>
+            <input type="number" id="totalTaxAmount" [(ngModel)]="selectedTax.totalTaxAmount" name="totalTaxAmount"
+                required>
+
+            <label for="userId">User ID:</label>
+            <input type="number" id="userId" [(ngModel)]="selectedTax.userId" name="userId" required>
+
+            <button type="button" (click)="selectedTax.taxFormId ? updateTaxApi() : addTax()">
+                {{ selectedTax.taxFormId ? 'Update' : 'Add' }} Tax
+            </button>
+        </form>
+    </div>
+</div>
