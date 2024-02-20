@@ -4,7 +4,7 @@ import { TaxService } from '../../services/tax.service';
 import { Tax } from '../../models/tax-management.model';
 import { TaxManagementComponent } from './tax-management.component';
 
-describe('TaxService', () => {
+describe('TaxManagementComponent', () => {
   let component: TaxManagementComponent;
   let service: TaxService;
   let httpTestingController: HttpTestingController;
